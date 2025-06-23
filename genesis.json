@@ -1,0 +1,24 @@
+{
+  "chainId": "threshold-consensus",
+  "time": "2024-03-20T00:00:00Z",
+  "validators": [
+    {
+      "account": {
+        "address": "742d35cc6634c0532925a3b844bc454e4438f44e",
+        "balance": 1000000000000000000
+      }
+    },
+    {
+      "account": {
+        "address": "853d43ac7517b954f0dcb7d4b67b6f0b3d2b0d99",
+        "balance": 1000000000000000000
+      }
+    },
+    {
+      "account": {
+        "address": "963d43ac7517b954f0dcb7d4b67b6f0b3d2b0d99",
+        "balance": 1000000000000000000
+      }
+    }
+  ]
+}
