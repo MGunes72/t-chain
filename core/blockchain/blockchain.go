@@ -6,10 +6,10 @@ import (
 
 	"github.com/coinbase/kryptology/pkg/core/curves"
 
-	"threshold-consensus/common"
-	"threshold-consensus/consensus"
-	"threshold-consensus/core/types"
-	"threshold-consensus/log"
+	"github.com/MGunes72/t-chain/common"
+	"github.com/MGunes72/t-chain/consensus"
+	"github.com/MGunes72/t-chain/core/types"
+	"github.com/MGunes72/t-chain/log"
 )
 
 type Blockchain struct {

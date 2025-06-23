@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"time"
 
-	"threshold-consensus/common"
+	"github.com/MGunes72/t-chain/common"
 )
 
 type Genesis struct {

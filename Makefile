@@ -1,6 +1,8 @@
+GENESIS ?= genesis.json
+
 build:
-	cd cmd/chain && \
-	go build -o ../../bin/chain
+	cd cmd/t-chain && \
+	go build -o ../../bin/t-chain
 
 run: build
-	./bin/chain -genesis=$(GENESIS)
+	./bin/t-chain -genesis=$(GENESIS)

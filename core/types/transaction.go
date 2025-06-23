@@ -3,7 +3,7 @@ package types
 import (
 	"crypto/sha256"
 
-	"threshold-consensus/common"
+	"github.com/MGunes72/t-chain/common"
 )
 
 type Transaction struct {

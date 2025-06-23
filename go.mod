@@ -1,10 +1,10 @@
-module threshold-consensus
+module github.com/MGunes72/t-chain
 
 go 1.24.0
 
 require (
 	github.com/coinbase/kryptology v1.8.0
-	golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
+	golang.org/x/crypto v0.39.0
 )
 
 require (
@@ -13,5 +13,5 @@ require (
 	github.com/bwesterb/go-ristretto v1.2.0 // indirect
 	github.com/consensys/gnark-crypto v0.5.3 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
-	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
+	golang.org/x/sys v0.33.0 // indirect
 )

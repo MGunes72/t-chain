@@ -4,8 +4,8 @@ import (
 	"encoding/hex"
 	"time"
 
-	"threshold-consensus/core/blockchain"
-	"threshold-consensus/log"
+	"github.com/MGunes72/t-chain/core/blockchain"
+	"github.com/MGunes72/t-chain/log"
 )
 
 func main() {

@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/crypto/sha3"
 
-	"threshold-consensus/common"
+	"github.com/MGunes72/t-chain/common"
 )
 
 type KeccakState interface {

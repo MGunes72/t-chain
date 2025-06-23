@@ -6,8 +6,8 @@ import (
 
 	"github.com/coinbase/kryptology/pkg/ted25519/frost"
 
-	"threshold-consensus/common"
-	"threshold-consensus/crypto"
+	"github.com/MGunes72/t-chain/common"
+	"github.com/MGunes72/t-chain/crypto"
 )
 
 type Header struct {

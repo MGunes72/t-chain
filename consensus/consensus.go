@@ -11,9 +11,9 @@ import (
 	"github.com/coinbase/kryptology/pkg/sharing"
 	frost2 "github.com/coinbase/kryptology/pkg/ted25519/frost"
 
-	"threshold-consensus/core/types"
-	"threshold-consensus/crypto/frost"
-	"threshold-consensus/log"
+	"github.com/MGunes72/t-chain/core/types"
+	"github.com/MGunes72/t-chain/crypto/frost"
+	"github.com/MGunes72/t-chain/log"
 )
 
 var (

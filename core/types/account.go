@@ -1,7 +1,7 @@
 package types
 
 import (
-	"threshold-consensus/common"
+	"github.com/MGunes72/t-chain/common"
 )
 
 type Account struct {
