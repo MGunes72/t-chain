@@ -133,6 +133,10 @@ FROST is a two-round threshold Schnorr signature protocol that enables multiple 
 
 - cmd/t-chain: Entry point; manages initialization and block loop.
 
+## CLI Outputs
+
+<img src="images/cli-outputs.png" width="650" alt="CLI">
+
 ## Future Work
 
 - Support for dynamic validator sets and key resharing.
