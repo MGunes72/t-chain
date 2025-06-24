@@ -417,8 +417,8 @@ func (c *Consensus) SignBlockConcurrent(block *types.Block) (*types.SignedBlock,
 	}
 
 	// Verify signature
-	_, err = frost2.Verify(c.Curve, frost2.Ed25519ChallengeDeriver{}, c.verificationKey, block.Hash.Bytes(), signature)
-	if err != nil {
+	ok, err := frost2.Verify(c.Curve, frost2.Ed25519ChallengeDeriver{}, c.verificationKey, block.Hash.Bytes(), signature)
+	if !ok || err != nil {
 		return nil, errors.New("signature verification failed: " + err.Error())
 	}
 
