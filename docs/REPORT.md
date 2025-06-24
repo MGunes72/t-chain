@@ -137,7 +137,7 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 
 <img src="images/cli-outputs.png" width="650" alt="CLI">
 
-## Limitation
+## Limitations
 
 While this project implements validator rotation and epoch-based consensus logic, it does not currently include epochal key resharing/refreshing, a critical feature in robust threshold cryptographic systems.
 
@@ -183,6 +183,7 @@ This project demonstrates the viability of using threshold cryptography, specifi
 - FROST paper: https://eprint.iacr.org/2020/852.pdf
 - FROST Author's implementation: https://git.uwaterloo.ca/ckomlo/frost/
 - Coinbase Kryptology Library: https://github.com/coinbase/kryptology
+- https://github.com/ZcashFoundation/frost
 - ZK Podcast Episode 318: https://zeroknowledge.fm/podcast/318/
 - Chelsea Komlo's UCL Presentation: https://www.youtube.com/watch?v=ReN0kMzDFro
 - Dfinity's Internet Consensus Protocol paper: https://dfinity.org/presentations/podc-2022-cr.pdf
