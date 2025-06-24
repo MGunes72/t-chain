@@ -2,7 +2,7 @@
 
 Blockchain systems rely on distributed consensus to agree on the order and content of blocks added to the chain. Traditional consensus protocols, such as `Proof of Work (PoW)` or `Byzantine Fault Tolerance (BFT)`, often suffer from scalability, performance, and energy efficiency issues.
 
-This project proposes an alternative approach using threshold cryptography, specifically `FROST` (Flexible Round-Optimized Schnorr Threshold Signature), to enable an efficient and secure consensus mechanism that requires only a subset of validators to sign each block. The system is implemented as a blockchain simulator in `Go (Golang)`, with features such as validator rotation and block aggregation.
+This project proposes an alternative approach using threshold cryptography, specifically `FROST (Flexible Round-Optimized Schnorr Threshold Signature)`, to enable an efficient and secure consensus mechanism that requires only a subset of validators to sign each block. The system is implemented as a blockchain simulator in `Go (Golang)`, with features such as validator rotation and block aggregation.
 
 ## Background and Motivation
 
@@ -32,12 +32,12 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 
 - Blocks are created every 5 seconds.
 
-- Each block includes:
+- **Each block includes**:
     - Block header
     - Block hash
     - List of transactions
 
-- Each Header Includes:
+- **Each Header Includes**:
     - Block Number
     - Timestamp
     - Chain ID
@@ -46,7 +46,7 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
     - Header Hash
     - Previous block hash
 
-- Finally, each signed block has:
+- **Finally, each signed block has**:
     - Block
     - Block signature
     - Block aggregator
@@ -74,7 +74,7 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 ## FROST: Flexible Round-Optimized Schnorr Threshold Signatures
 
 ### Overview
-`FROST` is a two-round threshold Schnorr signature protocol that enables multiple parties to collaboratively sign a message, producing a single `Schnorr` signature.
+`FROST` is a two-round threshold `Schnorr` signature protocol that enables multiple parties to collaboratively sign a message, producing a single `Schnorr` signature.
 
 ### Protocol Phases
 
@@ -92,7 +92,7 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 
 - `Round 2`: After collecting commitments, each validator generates a signature share.
 
-- The aggregator collects signature shares and uses Lagrange interpolation to compute the final signature.
+- The aggregator collects signature shares and uses `Lagrange interpolation` to compute the final signature.
 
 ### Advantages
 - Two-round efficiency.
@@ -109,29 +109,33 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 
 - Language: Go
 
-- Crypto Library: `Coinbase Kryptology Library`
+- FROST Library: `Coinbase Kryptology Library`
+
+- Curve: `Ed25519` elliptic curve
+
+- Signatures: `EdDSA` compatible `Schnorr` signatures
 
 - Concurrency: Goroutines and channels
 
-- Hashing: `SHA-256`, `Keccak256` (for Ethereum-style addresses)
+- Hashing: `SHA-256`, `Keccak256` (for **Ethereum**-style addresses)
 
 ### Project Modules
 
-- `core`: This module is define the core structural elements of the blockchain.
+- **core:** This module is define the core structural elements of the blockchain.
 
-- `core/blockchain.go`: blockchain.go is the place where blocks added to the blockchain. At the beginning of the blockchain, blockchain.go lets us to load a genesis for the initialization. 
+- **core/blockchain.go:** blockchain.go is the place where blocks added to the blockchain. At the beginning of the blockchain, blockchain.go lets us to load a genesis for the initialization. 
 
-- `core/types`: This module includes the blockchain's core types such as blocks, transactions, transaction pool, accounts.
+- **core/types:** This module includes the blockchain's core types such as blocks, transactions, transaction pool, accounts.
 
-- `crypto/frost`: This module contains DKG and FROST specific functions.
+- **crypto/frost:** This module contains `DKG` and `FROST` specific functions.
 
-- `crypto/crypto.go`: It contains general crypto tools such as hash algorithms.
+- **crypto/crypto.go:** It contains general crypto tools such as hash algorithms.
 
-- `consensus`: Coordinates block creation and signing.
+- **consensus:** Coordinates block creation and signing.
 
-- `common`: Includes common types such as Address and Hash.
+- **common:** Includes common types such as `Address` and `Hash`.
 
-- `cmd/t-chain`: Entry point; manages initialization and block loop.
+- **cmd/t-chain:** Entry point; manages initialization and block loop.
 
 ## CLI Outputs
 
@@ -141,11 +145,11 @@ FROST, a recent advancement in threshold `Schnorr` signatures, offers a low-late
 
 While this project implements validator rotation and epoch-based consensus logic, it does not currently include epochal key resharing/refreshing, a critical feature in robust threshold cryptographic systems.
 
-The reason why epochal key resharing was not implemented in this project is due to the lack of a fully decentralized, dealerless resharing mechanism for FROST. While FROST supports efficient threshold signing, it currently does not offer a standard, production-ready protocol for resharing secret key shares. Even if Zcash Foundation implement a resharing mechanism for frost it requires trusted dealers and it is implented in `Rust` language. Resharing implementation of Zcash Foundation is [here](https://github.com/ZcashFoundation/frost/blob/main/frost-core/src/keys/refresh.rs)
+The reason why epochal key resharing was not implemented in this project is due to the lack of a fully decentralized, dealerless resharing mechanism for `FROST`. While `FROST` supports efficient threshold signing, it currently does not offer a standard, production-ready protocol for resharing secret key shares. Even if `Zcash Foundation` implemented a resharing mechanism for frost it requires trusted dealers and it is implented in `Rust` language. Resharing implementation of `Zcash Foundation` is [here](https://github.com/ZcashFoundation/frost/blob/main/frost-core/src/keys/refresh.rs)
 
 In the absence of such a protocol, implementing epochal resharing would require either:
 - Introducing a trusted dealer, which contradicts the decentralization goals of the project, or
-- Designing a custom Distributed Key Resharing (DKR) scheme, which is out of scope for this implementation.
+- Designing a custom `Distributed Key Resharing (DKR)` scheme, which is out of scope for this implementation.
 
 As a result, validators in this system retain their initial key shares across all epochs, and key material is not refreshed over time. This limitation is acknowledged and marked as a direction for future improvement.
 
@@ -160,9 +164,9 @@ In this implementation:
 - Validators reuse the same private key shares across all epochs.
 - As a result, validator rotation is logically supported but cryptographically static.
 
-This is a known limitation and should be addressed in future work by integrating Distributed Key Resharing (DKR) protocols, such as:
-- FROST resharing extensions
-- Verifiable Secret Sharing (VSS) with resharing capability
+This is a known limitation and should be addressed in future work by integrating `Distributed Key Resharing (DKR)` protocols, such as:
+- `FROST` resharing extensions
+- `Verifiable Secret Sharing (VSS)` with resharing capability
 
 ## Future Work
 
@@ -180,10 +184,12 @@ This project demonstrates the viability of using threshold cryptography, specifi
 
 ## References
 
+- Source code: https://github.com/MGunes72/t-chain
+
 - FROST paper: https://eprint.iacr.org/2020/852.pdf
 - FROST Author's implementation: https://git.uwaterloo.ca/ckomlo/frost/
 - Coinbase Kryptology Library: https://github.com/coinbase/kryptology
-- https://github.com/ZcashFoundation/frost
+- Zcash Foundtaion Frost Library: https://github.com/ZcashFoundation/frost
 - ZK Podcast Episode 318: https://zeroknowledge.fm/podcast/318/
 - Chelsea Komlo's UCL Presentation: https://www.youtube.com/watch?v=ReN0kMzDFro
 - Dfinity's Internet Consensus Protocol paper: https://dfinity.org/presentations/podc-2022-cr.pdf
